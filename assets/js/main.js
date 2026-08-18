@@ -89,33 +89,11 @@
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       if (!form.reportValidity()) return;
-      try {
-        var response = await fetch("/api/enquiries", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
-        var result = await response.json();
-        if (!response.ok) throw new Error(result.error || "Unable to send your enquiry.");
-        feedback.hidden = false;
-        feedback.className = "form-feedback form-feedback--success";
-        feedback.textContent = "Thank you. Your enquiry has been received by ANTRAC.";
-        form.reset();
-      } catch (error) {
-        feedback.hidden = false;
-        feedback.className = "form-feedback form-feedback--error";
-        feedback.textContent = "Unable to send your enquiry right now. Please call ANTRAC directly.";
-      }
+      feedback.hidden = false;
+      feedback.className = "form-feedback form-feedback--success";
+      feedback.textContent = "Thank you. Please call or WhatsApp ANTRAC directly to confirm your enquiry.";
+      form.reset();
     });
-  }
-
-  async function loadPublicSettings() {
-    try {
-      var response = await fetch("/api/settings");
-      if (!response.ok) return;
-      var settings = await response.json();
-      renderFooter(settings);
-      var heroDescription = document.querySelector("[data-hero-description]");
-      if (heroDescription && settings.heroDescription) heroDescription.textContent = settings.heroDescription;
-    } catch {
-      // The public pages continue to work when opened directly as static files.
-    }
   }
 
   window.ANTRAC = window.ANTRAC || {};
@@ -129,5 +107,4 @@
     element.textContent = new Date().getFullYear();
   });
   initContactForm();
-  loadPublicSettings();
 }());

@@ -65,16 +65,7 @@
     }
     [search, category, price, seats, transmission].forEach(function (input) { input.addEventListener("input", render); input.addEventListener("change", render); });
     document.querySelector("[data-clear-filters]").addEventListener("click", function () { search.value = ""; category.value = ""; price.value = ""; seats.value = ""; transmission.value = ""; render(); });
-    document.addEventListener("antrac:vehicles-updated", render);
     render();
-  }
-
-  function synchronizeVehicles(updatedVehicles) {
-    if (!Array.isArray(updatedVehicles) || !updatedVehicles.length) return;
-    vehicles.splice.apply(vehicles, [0, vehicles.length].concat(updatedVehicles));
-    window.ANTRAC_VEHICLES = vehicles;
-    renderHomeFleet();
-    document.dispatchEvent(new Event("antrac:vehicles-updated"));
   }
 
   window.ANTRAC_VEHICLES = vehicles;
@@ -89,8 +80,4 @@
 
   renderHomeFleet();
   initFleetPage();
-  fetch("/api/cars")
-    .then(function (response) { return response.ok ? response.json() : null; })
-    .then(synchronizeVehicles)
-    .catch(function () { /* Static-file fallback keeps the public fleet usable. */ });
 }());

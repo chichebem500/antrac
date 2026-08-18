@@ -72,11 +72,6 @@
   form.addEventListener("input", function (event) {
     if (event.target === pickupDate || event.target === returnDate) renderSummary();
   });
-  document.addEventListener("antrac:vehicles-updated", function () {
-    var selectedId = vehicleSelect.value;
-    populateVehicleOptions(selectedId || requestedVehicle);
-    renderSummary();
-  });
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
     if (!form.reportValidity()) return;
@@ -86,21 +81,9 @@
       feedback.textContent = "Please select a return date on or after your pickup date.";
       return;
     }
-    try {
-      var response = await fetch("/api/orders", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
-      var result = await response.json();
-      if (!response.ok) throw new Error(result.error || "Unable to submit the booking request.");
-      feedback.hidden = false;
-      feedback.className = "form-feedback form-feedback--success";
-      feedback.textContent = "Your booking request has been received. ANTRAC will contact you to confirm the final arrangements.";
-      form.reset();
-      populateVehicleOptions(requestedVehicle);
-      renderSummary();
-    } catch (error) {
-      feedback.hidden = false;
-      feedback.className = "form-feedback form-feedback--error";
-      feedback.textContent = error instanceof Error ? error.message : "Unable to submit your booking request.";
-    }
+    feedback.hidden = false;
+    feedback.className = "form-feedback form-feedback--success";
+    feedback.textContent = "Your booking details are ready. Please call or WhatsApp ANTRAC to confirm the final arrangements.";
   });
   renderSummary();
 }());

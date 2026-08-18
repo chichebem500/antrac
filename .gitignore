@@ -1,11 +1,11 @@
-# system files
-.DS_Store
+# # system files
+# .DS_Store
 
-# local environment files (not used by the static frontend)
-.env
-.env.local
-.env.*.local
+# # local environment files (not used by the static frontend)
+# .env
+# .env.local
+# .env.*.local
 
-# locally persisted administrator data
-data/admin-store.json
-data/admin-store.json.tmp
+# # locally persisted administrator data
+# data/admin-store.json
+# data/admin-store.json.tmp
