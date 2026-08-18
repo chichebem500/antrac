@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><title>ANTRAC | Administration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="admin-portal">
+  <a class="skip-link" href="#admin-content">Skip to content</a>
+  <main id="admin-content">
+    <section class="admin-login" data-admin-login>
+      <a class="admin-login__brand" href="index.html">ANTRAC</a>
+      <div class="admin-login__card"><p class="eyebrow">Administration</p><h1>Welcome back.</h1><p>Sign in to manage vehicles, customer orders, enquiries, and website details.</p>
+        <form data-login-form novalidate><label>Password<span class="password-field"><input name="password" type="password" autocomplete="current-password" required><button class="password-toggle" type="button" data-password-toggle aria-label="Show password" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.8"></circle></svg><span data-password-toggle-text>Show</span></button></span></label><button class="button button--light" type="submit">Sign in</button><p class="form-feedback" data-login-feedback role="status" hidden></p></form>
+      </div>
+    </section>
+
+    <section class="admin-app" data-admin-app hidden>
+      <aside class="admin-sidebar"><a class="admin-sidebar__brand" href="index.html">ANTRAC <span>Admin</span></a><nav aria-label="Administrator navigation">
+        <button type="button" data-admin-tab="overview" class="is-active">Overview</button><button type="button" data-admin-tab="cars">Fleet</button><button type="button" data-admin-tab="orders">Orders</button><button type="button" data-admin-tab="enquiries">Enquiries</button><button type="button" data-admin-tab="settings">Website settings</button>
+      </nav><div class="admin-sidebar__bottom"><a href="index.html">View website ↗</a><button type="button" data-logout>Sign out</button></div></aside>
+      <div class="admin-content">
+        <header class="admin-topbar"><div><p class="eyebrow">ANTRAC logistics limited</p><h1 data-admin-title>Overview</h1></div><p class="admin-topbar__date" data-admin-date></p></header>
+
+        <section data-admin-panel="overview"><div class="admin-stats" data-admin-stats></div><div class="admin-grid"><article class="admin-panel"><p class="eyebrow">Getting started</p><h2>Run the website from one place.</h2><p>Manage the public fleet, receive customer booking requests, and update the business details shown on the website.</p></article><article class="admin-panel"><p class="eyebrow">Important</p><h2>Review new orders promptly.</h2><p>Every booking request remains pending until you confirm it here. The customer sees an on-screen confirmation only.</p></article></div></section>
+
+        <section data-admin-panel="cars" hidden><div class="admin-panel-heading"><div><p class="eyebrow">Fleet management</p><h2>Add, edit, or remove a vehicle.</h2></div><button class="button button--dark" type="button" data-new-car>Add vehicle</button></div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Vehicle</th><th>Category</th><th>Daily price</th><th>Availability</th><th></th></tr></thead><tbody data-cars-table></tbody></table></div>
+          <form class="admin-form admin-form--vehicle" data-car-form hidden><div class="admin-form__heading"><h2 data-car-form-title>Add vehicle</h2><button class="button-link" type="button" data-close-car-form>Close</button></div><input type="hidden" name="id"><div class="admin-form-grid"><label>Name<input name="name" required></label><label>Category<input name="category" required></label><label>Daily price (₦)<input name="pricePerDay" type="number" min="0" required></label><label>Deposit (₦)<input name="deposit" type="number" min="0"></label><label>Seats<input name="seats" type="number" min="1"></label><label>Doors<input name="doors" type="number" min="1"></label><label>Transmission<input name="transmission" required></label><label>Fuel<input name="fuel" required></label><label>Mileage allowance<input name="mileage" required></label><label>Minimum driver age<input name="minimumAge" type="number" min="18"></label><label class="admin-form-grid__wide">Primary image path<input name="image" placeholder="assets/images/cars/..." required></label><label class="admin-form-grid__wide">Description<textarea name="description" rows="4" required></textarea></label><label class="admin-form-grid__wide">Gallery image paths <span>One path per line</span><textarea name="gallery" rows="4"></textarea></label><label class="admin-form-grid__wide">Features <span>One feature per line</span><textarea name="features" rows="4"></textarea></label><label class="admin-check"><input name="available" type="checkbox" checked> Available to request</label><label class="admin-check"><input name="active" type="checkbox" checked> Show on public fleet</label></div><div class="admin-form__actions"><button class="button button--dark" type="submit">Save vehicle</button><p class="form-feedback" data-car-feedback role="status" hidden></p></div></form>
+        </section>
+
+        <section data-admin-panel="orders" hidden><div class="admin-panel-heading"><div><p class="eyebrow">Customer bookings</p><h2>Review and arrange orders.</h2></div></div><div class="admin-orders" data-orders-list></div></section>
+        <section data-admin-panel="enquiries" hidden><div class="admin-panel-heading"><div><p class="eyebrow">Contact messages</p><h2>Customer enquiries.</h2></div></div><div class="admin-orders" data-enquiries-list></div></section>
+        <section data-admin-panel="settings" hidden><div class="admin-panel-heading"><div><p class="eyebrow">Website settings</p><h2>Company information.</h2></div></div><form class="admin-form" data-settings-form><div class="admin-form-grid"><label>Company name<input name="name" required></label><label>Main phone<input name="phone" required></label><label>Second phone<input name="secondaryPhone"></label><label>Email<input name="email" type="email" required></label><label class="admin-form-grid__wide">Address<textarea name="address" rows="3" required></textarea></label><label class="admin-form-grid__wide">Homepage description<textarea name="heroDescription" rows="3" required></textarea></label></div><div class="admin-form__actions"><button class="button button--dark" type="submit">Save website settings</button><p class="form-feedback" data-settings-feedback role="status" hidden></p></div></form></section>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/admin.js?v=20260818"></script>
+</body>
+</html>

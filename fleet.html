@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse ANTRAC executive cars, SUVs, buses, and secure transportation options.">
+  <title>Fleet | ANTRAC Logistics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="fleet">
+  <a class="skip-link" href="#main-content">Skip to content</a><div data-site-header></div>
+  <main id="main-content">
+    <section class="page-hero"><div class="container"><p class="eyebrow">Our fleet</p><h1>The right vehicle for your journey.</h1><p>Browse executive vehicles and specialist transport options. Rates are estimates and ANTRAC will confirm availability and final pricing.</p></div></section>
+    <section class="section section--topless">
+      <div class="container fleet-tools" aria-label="Fleet filters">
+        <div class="fleet-search"><label for="vehicle-search">Search vehicles</label><input id="vehicle-search" type="search" placeholder="Search by vehicle or category"></div>
+        <div class="filter-grid">
+          <label>Category<select id="category-filter"><option value="">All categories</option></select></label>
+          <label>Price per day<select id="price-filter"><option value="">Any price</option><option value="150000">Up to ₦150,000</option><option value="250000">Up to ₦250,000</option><option value="500000">Up to ₦500,000</option><option value="1000000">Up to ₦1,000,000</option></select></label>
+          <label>Seats<select id="seats-filter"><option value="">Any capacity</option><option value="5">5+ seats</option><option value="7">7+ seats</option><option value="14">14+ seats</option></select></label>
+          <label>Transmission<select id="transmission-filter"><option value="">Any transmission</option><option value="Automatic">Automatic</option><option value="Manual">Manual</option></select></label>
+        </div>
+        <div class="filter-result"><span data-fleet-count></span><button class="button-link" type="button" data-clear-filters>Clear filters</button></div>
+      </div>
+      <div class="fleet-grid container" data-fleet-grid></div>
+      <p class="empty-state container" data-fleet-empty hidden>No vehicles match those filters. Try adjusting your search.</p>
+    </section>
+  </main>
+  <div data-site-footer></div><script src="assets/js/main.js"></script><script src="assets/js/fleet.js"></script>
+</body>
+</html>

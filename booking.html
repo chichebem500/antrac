@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Request executive car hire and transportation with ANTRAC Logistics Limited.">
+  <title>Book Now | ANTRAC Logistics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="booking">
+  <a class="skip-link" href="#main-content">Skip to content</a><div data-site-header></div>
+  <main id="main-content">
+    <section class="page-hero page-hero--compact"><div class="container"><p class="eyebrow">Booking request</p><h1>Arrange your journey with ANTRAC.</h1><p>Tell us what you need. Your estimated price updates as you select a vehicle and dates; ANTRAC confirms availability and final pricing directly.</p></div></section>
+    <section class="section booking-section"><div class="container booking-layout"><div class="booking-intro"><p class="eyebrow">Booking request</p><h2>Tell us about your journey.</h2><p>Complete the details below and review your summary. Your request is sent directly to the ANTRAC team for confirmation; payment is not taken on this website.</p></div>
+      <form class="public-form booking-form" data-booking-form novalidate>
+        <fieldset><legend>Journey details</legend><div class="form-grid">
+          <label class="form-grid__wide">Vehicle<select name="vehicle" id="booking-vehicle" required><option value="">Select a vehicle</option></select></label>
+          <label>Pickup location<input name="pickupLocation" autocomplete="street-address" placeholder="e.g. Nnamdi Azikiwe Airport" required></label>
+          <label>Drop-off location<input name="dropoffLocation" placeholder="e.g. Maitama, Abuja" required></label>
+          <label>Pickup date<input name="pickupDate" type="date" required></label>
+          <label>Pickup time<input name="pickupTime" type="time" required></label>
+          <label>Return date<input name="returnDate" type="date" required></label>
+          <label>Return time<input name="returnTime" type="time" required></label>
+        </div></fieldset>
+        <fieldset><legend>Your details</legend><div class="form-grid">
+          <label>Full name<input name="customerName" autocomplete="name" required></label>
+          <label>Phone number<input name="phone" autocomplete="tel" inputmode="tel" required></label>
+          <label class="form-grid__wide">Email address<input name="email" type="email" autocomplete="email" required></label>
+          <label class="form-grid__wide">Additional notes <span>(optional)</span><textarea name="notes" rows="5" placeholder="Passenger count, flight number, special arrangements…"></textarea></label>
+        </div></fieldset>
+        <button class="button button--dark" type="submit">Send booking request</button><p class="form-feedback" data-booking-feedback role="status" hidden></p>
+      </form>
+      <aside class="booking-summary" aria-live="polite"><p class="eyebrow">Booking summary</p><h2>Your estimated itinerary.</h2><div data-booking-summary><p class="summary-empty">Choose a vehicle and dates to see your estimated rental cost.</p></div><p class="summary-note">Rates are estimated in Nigerian Naira. Your booking is only confirmed after ANTRAC reviews your request.</p></aside>
+    </div></section>
+  </main>
+  <div data-site-footer></div><script src="assets/js/main.js"></script><script src="assets/js/fleet.js"></script><script src="assets/js/booking.js"></script>
+</body>
+</html>

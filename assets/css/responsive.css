@@ -1,0 +1,117 @@
+@media (max-width: 980px) {
+  .container { width: min(100% - 48px, 1250px); }
+  .site-header__inner { width: min(100% - 48px, 1400px); }
+  .site-navigation { gap: 21px; }
+  .quick-booking__inner { grid-template-columns: repeat(3, 1fr); }
+  .quick-booking .button { grid-column: 1 / -1; min-height: 54px; }
+  .fleet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card:nth-child(2) { border-right: 0; }
+  .service-card:nth-child(-n+2) { border-bottom: 1px solid #3a3a36; }
+  .reasons-grid { gap: 26px; }
+  .contact-form-layout, .booking-layout { grid-template-columns: minmax(0, 1fr); gap: 45px; }
+  .booking-summary { position: static; }
+  .vehicle-detail__hero { grid-template-columns: 1fr; }
+  .vehicle-detail__main-image { min-height: min(80vw, 620px); }
+  .vehicle-detail__content { padding: 70px 60px; }
+  .site-footer__top { grid-template-columns: 1.3fr 1fr; }
+  .site-footer__top > div:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  .container, .site-header__inner { width: calc(100% - 40px); }
+  .site-header__inner { min-height: 74px; }
+  .site-logo { font-size: 20px; }
+  .site-navigation, .header-book { display: none; }
+  .menu-toggle { display: block; }
+  .mobile-navigation { position: absolute; top: 100%; right: 0; left: 0; padding: 8px 20px 20px; border-top: 1px solid rgba(16, 16, 15, .12); background: var(--paper); color: var(--ink); box-shadow: 0 20px 30px rgba(16,16,15,.12); }
+  .site-header--dark .mobile-navigation { border-color: rgba(255,255,255,.2); background: var(--ink); color: var(--white); }
+  .mobile-navigation[data-open="true"] { display: grid; }
+  .mobile-navigation a { padding: 15px 0; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .hero { min-height: 710px; }
+  .hero__image { background-position: 63% center; }
+  .hero__veil { background: linear-gradient(90deg, rgba(8,8,7,.78), rgba(8,8,7,.40)); }
+  .hero__content { min-height: 710px; padding-top: 155px; padding-bottom: 75px; justify-content: flex-end; }
+  .hero h1, .page-hero h1 { font-size: clamp(49px, 13vw, 75px); letter-spacing: -.075em; }
+  .hero__description { font-size: 14px; }
+  .button-row { display: grid; width: 100%; }
+  .button { min-height: 51px; width: 100%; }
+  .quick-booking { margin-top: 0; }
+  .quick-booking__inner { width: 100%; grid-template-columns: 1fr; box-shadow: none; }
+  .quick-booking__inner > div { padding: 17px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .quick-booking .button { grid-column: auto; }
+  .section { padding: 76px 0; }
+  .section-heading { margin-bottom: 38px; }
+  .section-heading h2, .split-heading h2, .two-column h2, .contact-form-layout h2, .booking-intro h2, .booking-summary h2, .about-banner h2, .contact-cta h2 { font-size: clamp(37px, 11vw, 55px); }
+  .fleet-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .vehicle-card__image { height: min(72vw, 340px); }
+  .filter-grid { grid-template-columns: 1fr; gap: 18px; }
+  .fleet-tools { padding: 22px 20px; }
+  .filter-result { align-items: flex-start; flex-direction: column; }
+  .services-grid, .reasons-grid, .steps-grid, .values-grid, .mission-grid, .split-heading, .two-column, .contact-details { grid-template-columns: 1fr; }
+  .service-card, .service-card:nth-child(2), .service-card:last-child { min-height: auto; padding: 28px 0; border-right: 0; border-bottom: 1px solid #3a3a36; }
+  .service-card h3 { margin-top: 28px; }
+  .reasons-grid, .values-grid { margin-top: 42px; gap: 0; }
+  .reasons-grid > article { padding: 22px 0; }
+  .steps-grid li, .values-grid article { min-height: auto; padding: 26px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .about-banner { min-height: 580px; padding: 80px 0; }
+  .testimonials-grid blockquote { padding: 28px 24px; }
+  .faq-list { margin-top: 38px; }
+  .faq-list summary { font-size: 15px; }
+  .page-hero { min-height: 380px; padding: 78px 0 63px; }
+  .page-hero--compact { min-height: 355px; }
+  .service-list article { grid-template-columns: 1fr; gap: 17px; }
+  .service-list .text-link { justify-self: start; }
+  .mission-grid article, .mission-grid article + article { padding: 31px 0; border-left: 0; border-bottom: 1px solid #3a3a36; }
+  .contact-form-layout, .booking-layout { gap: 35px; }
+  .public-form { padding: 25px 20px; }
+  .form-grid { grid-template-columns: 1fr; gap: 20px; }
+  .form-grid__wide { grid-column: auto; }
+  .contact-details { gap: 28px; }
+  .contact-actions { grid-column: auto; }
+  .map-section__intro { padding: 70px 0 36px; align-items: flex-start; flex-direction: column; }
+  .map-section__intro .button { width: 100%; }
+  .map-section__canvas, .map-section iframe { min-height: 500px; height: 500px; }
+  .map-location-card { width: calc(100% - 40px); top: 20px; left: 20px; padding: 22px 20px; }
+  .booking-summary { padding: 27px 20px; }
+  .vehicle-detail__content { padding: 55px 20px 65px; }
+  .vehicle-detail__main-image { min-height: min(85vw, 470px); }
+  .vehicle-features { grid-template-columns: 1fr; }
+  .vehicle-gallery { grid-template-columns: 1fr; }
+  .vehicle-gallery figure { min-height: 250px; }
+  .site-footer { padding: 58px 0 20px; }
+  .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 38px; }
+  .site-footer__top > div:first-child { grid-column: auto; }
+  .site-footer__bottom { flex-direction: column; }
+  .portfolio-container { width: calc(100% - 40px); }
+  .portfolio-nav { min-height: 74px; }
+  .portfolio-nav-links { display: none; }
+  .portfolio-hero { min-height: 680px; padding: 78px 0; }
+  .portfolio-hero h1 { font-size: clamp(57px, 17vw, 84px); }
+  .portfolio-split, .project-card { grid-template-columns: 1fr; }
+  .project-card { gap: 18px; }
+  .project-card .text-link { justify-self: start; }
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-footer { flex-direction: column; }
+  .admin-login { padding: 20px; grid-template-columns: 1fr; }
+  .admin-login__brand { margin-bottom: 30px; }
+  .admin-login__card { width: 100%; padding: 35px 25px; }
+  .admin-app { grid-template-columns: 1fr; }
+  .admin-sidebar { min-height: auto; padding: 18px 20px; position: sticky; top: 0; z-index: 10; }
+  .admin-sidebar__brand { padding: 4px 0 14px; }
+  .admin-sidebar__brand span, .admin-sidebar__bottom { display: none; }
+  .admin-sidebar nav { grid-template-columns: repeat(5, max-content); overflow-x: auto; }
+  .admin-sidebar nav button { padding: 12px 13px; border-bottom: 1px solid #363632; white-space: nowrap; }
+  .admin-content { padding: 0 20px 50px; }
+  .admin-topbar { min-height: 122px; }
+  .admin-topbar__date { display: none; }
+  .admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-grid { grid-template-columns: 1fr; }
+  .admin-panel-heading { align-items: flex-start; flex-direction: column; }
+  .admin-panel-heading .button { width: 100%; }
+  .admin-form { padding: 25px 20px; }
+  .admin-form-grid { grid-template-columns: 1fr; }
+  .admin-form-grid__wide { grid-column: auto; }
+  .admin-order { align-items: stretch; flex-direction: column; }
+  .admin-order__action { text-align: left; }
+}
