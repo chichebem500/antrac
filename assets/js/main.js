@@ -86,17 +86,39 @@
     var form = document.querySelector("[data-contact-form]");
     if (!form) return;
     var feedback = form.querySelector("[data-contact-feedback]");
+    var service = form.elements.service;
+    var requestedService = new URLSearchParams(window.location.search).get("service");
+    if (service && requestedService && Array.from(service.options).some(function (option) { return option.value === requestedService; })) {
+      service.value = requestedService;
+    }
+
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       if (!form.reportValidity()) return;
       feedback.hidden = false;
       feedback.className = "form-feedback form-feedback--success";
-      feedback.textContent = "Thank you. Please call or WhatsApp ANTRAC directly to confirm your enquiry.";
+      var serviceName = service && service.selectedIndex >= 0 ? service.options[service.selectedIndex].text.replace(" — enquiry only", "") : "service";
+      feedback.textContent = "Thank you. Your " + serviceName + " enquiry is ready. Please call or WhatsApp ANTRAC directly to confirm the next steps.";
       form.reset();
     });
   }
 
   window.ANTRAC = window.ANTRAC || {};
+  function initMapLoading() {
+    document.querySelectorAll("[data-map-canvas]").forEach(function (canvas) {
+      var frame = canvas.querySelector("[data-map-frame]");
+      var loader = canvas.querySelector("[data-map-loader]");
+      if (!frame) return;
+      function finish() {
+        canvas.dataset.loading = "false";
+        canvas.classList.add("is-loaded");
+        canvas.setAttribute("aria-busy", "false");
+        if (loader) loader.hidden = true;
+      }
+      frame.addEventListener("load", finish, { once: true });
+      if (frame.complete) window.setTimeout(finish, 0);
+    });
+  }
   window.ANTRAC.formatNaira = function (amount) {
     return new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", maximumFractionDigits: 0 }).format(amount);
   };
@@ -107,4 +129,5 @@
     element.textContent = new Date().getFullYear();
   });
   initContactForm();
+  initMapLoading();
 }());

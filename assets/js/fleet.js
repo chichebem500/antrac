@@ -2,11 +2,16 @@
   "use strict";
 
   var imageRoot = "assets/images/";
+  function imageSource(image) {
+    return image.indexOf("assets/") === 0 || image.indexOf("public/") === 0
+      ? image
+      : imageRoot + image;
+  }
   var vehicles = [
     { id: "toyota-camry-2012-2015", name: "Toyota Camry (2012–2015)", category: "Executive Sedan", pricePerDay: 120000, seats: 5, doors: 4, transmission: "Automatic", fuel: "Petrol", available: true, image: "cars/toyota-camry/main.jpg.jpeg", gallery: ["cars/toyota-camry/main.jpg.jpeg", "cars/toyota-camry/toyota-camry.jpg", "cars/toyota-camry/interiorb.jpg", "cars/toyota-camry/interiora.jpg.jpg", "cars/toyota-camry/toyota-camryi.jpg", "cars/toyota-camry/toyota-camrySE.jpg"], features: ["Air conditioning", "Comfortable cabin", "Professional presentation"], description: "Toyota Camry for executive travel, airport transfers, and comfortable city journeys." },
     { id: "toyota-camry-2020", name: "Toyota Camry (2020)", category: "Executive Sedan", pricePerDay: 200000, seats: 5, doors: 4, transmission: "Automatic", fuel: "Petrol", available: true, image: "cars/toyota-camry/toyota-camry.jpg", gallery: ["cars/toyota-camry/toyota-camry.jpg", "cars/toyota-camry/main.jpg.jpeg", "cars/toyota-camry/interiorb.jpg"], features: ["Executive seating", "Air conditioning", "Airport-ready comfort"], description: "2020 Toyota Camry for polished executive movements and day-to-day transport." },
-    { id: "lexus-gx-460", name: "Lexus GX 460", category: "Luxury SUV", pricePerDay: 170000, seats: 7, doors: 5, transmission: "Automatic", fuel: "Petrol", available: true, image: "cars/lexus-rx/lexus-rx.jpeg", gallery: ["cars/lexus-rx/lexus-rx.jpeg"], features: ["Seven-seat capacity", "Luxury SUV comfort", "Climate control"], description: "Lexus GX 460 for comfortable, capable executive transportation." },
-    { id: "lexus-lx-570-2020", name: "Lexus LX 570 (2020)", category: "Luxury SUV", pricePerDay: 250000, seats: 7, doors: 5, transmission: "Automatic", fuel: "Petrol", available: true, image: "cars/bullet-proof/lexus/lexus-570.jpeg", gallery: ["cars/bullet-proof/lexus/lexus-570.jpeg", "cars/bullet-proof/lexus/lexus-570-backin.jpeg", "cars/bullet-proof/lexus/lexus-570-side.jpeg", "cars/bullet-proof/lexus/lexus-570-side2.jpeg", "cars/bullet-proof/lexus/driversit.jpeg"], features: ["Premium SUV interior", "Seven-seat capacity", "Executive comfort"], description: "2020 Lexus LX 570 for premium travel and executive movements." },
+    { id: "lexus-gx-460", name: "Lexus GX 460", category: "Luxury SUV", pricePerDay: 170000, seats: 7, doors: 5, transmission: "Automatic", fuel: "Petrol", available: true, image: "public/images/cars/lexus/lexus-gx460.jpg", gallery: ["public/images/cars/lexus/lexus-gx460.jpg"], features: ["Seven-seat capacity", "Luxury SUV comfort", "Climate control"], description: "Lexus GX 460 for comfortable, capable executive transportation." },
+    { id: "lexus-lx-570-2020", name: "Lexus LX 570 (2020)", category: "Luxury SUV", pricePerDay: 250000, seats: 7, doors: 5, transmission: "Automatic", fuel: "Petrol", available: true, image: "public/images/cars/lexus/Lexus-lx570.jpg", gallery: ["public/images/cars/lexus/Lexus-lx570.jpg"], features: ["Premium SUV interior", "Seven-seat capacity", "Executive comfort"], description: "2020 Lexus LX 570 for premium travel and executive movements." },
     { id: "coaster-bus-standard", name: "Coaster Bus", category: "Group Transportation", pricePerDay: 250000, seats: 22, doors: 1, transmission: "Manual", fuel: "Diesel", available: true, image: "cars/toyota-costal-bus/toyota-coaster.jpeg", gallery: ["cars/toyota-costal-bus/toyota-coaster.jpeg", "cars/toyota-costal-bus/73f92b46-b2b3-4a28-bffb-af78c9f21ed8.jpg", "cars/toyota-costal-bus/toyota-coaster-back.jpeg", "cars/toyota-costal-bus/toyota-coaster-inside.jpeg"], features: ["22-passenger capacity", "Air conditioning", "Group itinerary support"], description: "Coaster bus for corporate movements, events, and organised group travel." },
     { id: "coaster-bus-2020", name: "Coaster Bus (2020)", category: "Group Transportation", pricePerDay: 400000, seats: 22, doors: 1, transmission: "Manual", fuel: "Diesel", available: true, image: "cars/toyota-costal-bus/73f92b46-b2b3-4a28-bffb-af78c9f21ed8.jpg", gallery: ["cars/toyota-costal-bus/73f92b46-b2b3-4a28-bffb-af78c9f21ed8.jpg", "cars/toyota-costal-bus/toyota-coaster.jpeg", "cars/toyota-costal-bus/toyota-coaster-inside.jpeg"], features: ["22-passenger capacity", "Air conditioning", "Group itinerary support"], description: "2020 Coaster bus for premium group transportation and planned movements." },
     { id: "toyota-land-cruiser-2019-2020", name: "Toyota Land Cruiser (2019–2020)", category: "Luxury SUV", pricePerDay: 180000, seats: 7, doors: 5, transmission: "Automatic", fuel: "Diesel", available: true, image: "cars/toyota-landcruiser.jpg/OIP.jpg", gallery: ["cars/toyota-landcruiser.jpg/OIP.jpg", "cars/toyota-landcruiser.jpg/OIP.webp"], features: ["Seven-seat capacity", "Four-wheel capability", "Executive road comfort"], description: "Toyota Land Cruiser for dependable executive transportation and longer journeys." },
@@ -26,7 +31,7 @@
   function vehicleCard(vehicle) {
     var specs = [vehicle.seats + " seats", vehicle.transmission, vehicle.fuel].join(" · ");
     return '<article class="vehicle-card">' +
-      '<a class="vehicle-card__image" href="vehicle.html?id=' + encodeURIComponent(vehicle.id) + '" aria-label="View ' + vehicle.name + '"><img src="' + imageRoot + vehicle.image + '" alt="' + vehicle.name + '">' + (!vehicle.available ? '<span class="vehicle-card__unavailable">Unavailable</span>' : "") + "</a>" +
+      '<a class="vehicle-card__image" href="vehicle.html?id=' + encodeURIComponent(vehicle.id) + '" aria-label="View ' + vehicle.name + '"><img src="' + imageSource(vehicle.image) + '" alt="' + vehicle.name + '">' + (!vehicle.available ? '<span class="vehicle-card__unavailable">Unavailable</span>' : "") + "</a>" +
       '<div class="vehicle-card__body"><p class="eyebrow">' + vehicle.category + "</p><h3>" + vehicle.name + '</h3><p class="vehicle-card__details">' + specs + '</p><div class="vehicle-card__bottom"><div class="vehicle-card__price"><strong>' + formatNaira(vehicle.pricePerDay) + '</strong><span>Daily rate</span></div><div class="vehicle-card__actions"><a href="vehicle.html?id=' + encodeURIComponent(vehicle.id) + '">View details</a><a href="booking.html?vehicle=' + encodeURIComponent(vehicle.id) + '">Book now</a></div></div></div>' +
     "</article>";
   }
@@ -38,6 +43,8 @@
     var featured = featuredIds.map(function (id) { return vehicles.find(function (vehicle) { return vehicle.id === id; }); }).filter(Boolean);
     if (featured.length < 3) featured = featured.concat(vehicles.filter(function (vehicle) { return featured.indexOf(vehicle) < 0; }).slice(0, 3 - featured.length));
     host.innerHTML = featured.map(vehicleCard).join("");
+    host.setAttribute("aria-busy", "false");
+    var loader = document.querySelector("[data-home-fleet-loader]"); if (loader) loader.hidden = true;
   }
 
   function initFleetPage() {
@@ -48,6 +55,7 @@
     var price = document.getElementById("price-filter");
     var seats = document.getElementById("seats-filter");
     var transmission = document.getElementById("transmission-filter");
+    var loader = document.querySelector("[data-fleet-loader]");
     var count = document.querySelector("[data-fleet-count]");
     var empty = document.querySelector("[data-fleet-empty]");
     var categories = Array.from(new Set(vehicles.map(function (vehicle) { return vehicle.category; }))).sort();
@@ -64,6 +72,8 @@
       grid.innerHTML = filtered.map(vehicleCard).join("");
       count.textContent = filtered.length + " vehicle" + (filtered.length === 1 ? "" : "s") + " found";
       empty.hidden = filtered.length !== 0;
+      grid.setAttribute("aria-busy", "false");
+      if (loader) loader.hidden = true;
     }
     [search, category, price, seats, transmission].forEach(function (input) { input.addEventListener("input", render); input.addEventListener("change", render); });
     document.querySelector("[data-clear-filters]").addEventListener("click", function () { search.value = ""; category.value = ""; price.value = ""; seats.value = ""; transmission.value = ""; render(); });
@@ -73,6 +83,7 @@
   window.ANTRAC_VEHICLES = vehicles;
   window.ANTRAC = window.ANTRAC || {};
   window.ANTRAC.imageRoot = imageRoot;
+  window.ANTRAC.imageSource = imageSource;
   window.ANTRAC.findVehicle = function (id) {
     var numeric = Number(id);
     if (Number.isInteger(numeric) && numeric > 0) return vehicles[numeric - 1] || null;

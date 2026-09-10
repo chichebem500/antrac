@@ -15,7 +15,7 @@
     <section class="section booking-section"><div class="container booking-layout"><div class="booking-intro"><p class="eyebrow">Booking request</p><h2>Tell us about your journey.</h2><p>Complete the details below and review your summary. Call or WhatsApp ANTRAC to confirm availability and final pricing; payment is not taken on this website.</p></div>
       <form class="public-form booking-form" data-booking-form novalidate>
         <fieldset><legend>Journey details</legend><div class="form-grid">
-          <label class="form-grid__wide">Vehicle<select name="vehicle" id="booking-vehicle" required><option value="">Select a vehicle</option></select></label>
+          <label class="form-grid__wide">Vehicle<select name="vehicle" id="booking-vehicle" required disabled><option value="">Loading vehicles…</option></select></label>
           <label>Pickup location<input name="pickupLocation" autocomplete="street-address" placeholder="e.g. Nnamdi Azikiwe Airport" required></label>
           <label>Drop-off location<input name="dropoffLocation" placeholder="e.g. Maitama, Abuja" required></label>
           <label>Pickup date<input name="pickupDate" type="date" required></label>
@@ -31,7 +31,7 @@
         </div></fieldset>
         <button class="button button--dark" type="submit">Prepare booking details</button><p class="form-feedback" data-booking-feedback role="status" hidden></p>
       </form>
-      <aside class="booking-summary" aria-live="polite"><p class="eyebrow">Booking summary</p><h2>Your itinerary.</h2><div data-booking-summary><p class="summary-empty">Choose a vehicle and dates to see the rental total.</p></div><p class="summary-note">Published rates are in Nigerian Naira per day. Your booking is confirmed after ANTRAC reviews availability and your requirements.</p></aside>
+      <aside class="booking-summary" aria-live="polite"><p class="eyebrow">Booking summary</p><h2>Your itinerary.</h2><div data-booking-summary aria-busy="true"><div class="loading-section loading-section--dark" role="status"><span class="loading-section__spinner" aria-hidden="true"></span><span>Loading booking options…</span></div></div><p class="summary-note">Published rates are in Nigerian Naira per day. Your booking is confirmed after ANTRAC reviews availability and your requirements.</p></aside>
     </div></section>
   </main>
   <div data-site-footer></div><script src="assets/js/main.js"></script><script src="assets/js/fleet.js"></script><script src="assets/js/booking.js"></script>

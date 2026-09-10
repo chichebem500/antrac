@@ -44,7 +44,8 @@
         <h2>Travel in comfort and style.</h2>
         <p>Explore a selection of executive vehicles and group transportation options for a polished, professional experience.</p>
       </div>
-      <div class="fleet-grid container" data-home-fleet></div>
+      <div class="loading-section" data-home-fleet-loader role="status"><span class="loading-section__spinner" aria-hidden="true"></span><span>Loading featured vehicles…</span></div>
+      <div class="fleet-grid container" data-home-fleet aria-busy="true"></div>
       <div class="section-action"><a id="view-full-fleet" class="button button--dark" href="./fleet.html">View the full fleet</a></div>
     </section>
 
@@ -54,11 +55,12 @@
         <h2>Transportation made simple.</h2>
         <p>Professional transportation and logistics solutions designed around your journey.</p>
       </div>
-      <div class="services-grid container">
+      <div class="services-grid services-grid--five container">
         <article class="service-card"><span>01</span><h3>Executive Car Hire</h3><p>Comfortable, professional transport for business, airport, and personal journeys.</p></article>
         <article class="service-card"><span>02</span><h3>Chauffeur Services</h3><p>Discreet, professional drivers for journeys where every detail matters.</p></article>
         <article class="service-card"><span>03</span><h3>Airport Transfers</h3><p>Reliable arrival and departure transfers planned around your schedule.</p></article>
         <article class="service-card"><span>04</span><h3>Corporate Transportation</h3><p>Considered transport solutions for teams, clients, and executive visitors.</p></article>
+        <article class="service-card"><span>05</span><h3>Armed Man Escort</h3><p>Private enquiries for journeys requiring enhanced protection and appropriate arrangements.</p><a class="text-link text-link--light" href="contact.html?service=armed-man-escort">Make an enquiry <span>→</span></a></article>
       </div>
       <div class="section-action"><a class="text-link text-link--light" href="services.html">Explore every service <span aria-hidden="true">→</span></a></div>
     </section>

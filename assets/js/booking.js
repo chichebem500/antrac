@@ -47,10 +47,12 @@
     var amount = rentalDays > 0 ? vehicle.pricePerDay * rentalDays : null;
     var dateWarning = rentalDays === -1 ? '<p class="summary-empty">Your return date needs to be on or after the pickup date.</p>' : "";
     summary.innerHTML =
-      '<div class="booking-summary__vehicle"><img src="' + window.ANTRAC.imageRoot + vehicle.image + '" alt="' + escapeHtml(vehicle.name) + '"><div><h3>' + escapeHtml(vehicle.name) + '</h3><p>' + escapeHtml(vehicle.category) + " · " + vehicle.seats + " seats</p></div></div>" +
+      '<div class="booking-summary__vehicle"><img src="' + (window.ANTRAC.imageSource ? window.ANTRAC.imageSource(vehicle.image) : window.ANTRAC.imageRoot + vehicle.image) + '" alt="' + escapeHtml(vehicle.name) + '"><div><h3>' + escapeHtml(vehicle.name) + '</h3><p>' + escapeHtml(vehicle.category) + " · " + vehicle.seats + " seats</p></div></div>" +
       '<ul class="summary-list"><li><span>Pickup</span><strong>' + formatDate(pickupDate.value) + '</strong></li><li><span>Return</span><strong>' + formatDate(returnDate.value) + '</strong></li><li><span>Rental duration</span><strong>' + (rentalDays > 0 ? rentalDays + " day" + (rentalDays === 1 ? "" : "s") : "Select dates") + "</strong></li><li><span>Daily rate</span><strong>" + window.ANTRAC.formatNaira(vehicle.pricePerDay) + "</strong></li></ul>" +
       (amount ? '<div class="summary-total"><span>Rental total</span><strong>' + window.ANTRAC.formatNaira(amount) + "</strong></div>" : "") + dateWarning;
   }
+  vehicleSelect.disabled = false;
+  summary.setAttribute("aria-busy", "false");
 
   function populateVehicleOptions(selectedId) {
     vehicleSelect.innerHTML = '<option value="">Select a vehicle</option>' + vehicles.filter(function (vehicle) { return vehicle.active !== false; }).map(function (vehicle) {

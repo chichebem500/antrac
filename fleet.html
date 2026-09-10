@@ -23,7 +23,8 @@
         </div>
         <div class="filter-result"><span data-fleet-count></span><button class="button-link" type="button" data-clear-filters>Clear filters</button></div>
       </div>
-      <div class="fleet-grid container" data-fleet-grid></div>
+      <div class="loading-section" data-fleet-loader role="status"><span class="loading-section__spinner" aria-hidden="true"></span><span>Loading fleet…</span></div>
+      <div class="fleet-grid container" data-fleet-grid aria-busy="true"></div>
       <p class="empty-state container" data-fleet-empty hidden>No vehicles match those filters. Try adjusting your search.</p>
     </section>
   </main>
