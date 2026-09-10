@@ -115,3 +115,8 @@
   .admin-order { align-items: stretch; flex-direction: column; }
   .admin-order__action { text-align: left; }
 }
+
+@media (max-width: 720px) {
+  .owner-profile { grid-template-columns: 1fr; }
+  .owner-profile__image { min-height: min(125vw, 520px); }
+}
