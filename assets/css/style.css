@@ -421,3 +421,38 @@ body[data-page="home"] .site-header { position: absolute; inset: 0 0 auto; }
 .services-grid--five .service-card .text-link { margin-top: auto; padding-top: 20px; align-self: flex-start; }
 
 @media (prefers-reduced-motion: reduce) { .loading-section__spinner { animation: none; } }
+
+/* Premium interaction and accessibility refinements */
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.site-header { backdrop-filter: blur(12px); }
+.site-header--dark { background: linear-gradient(to bottom, rgba(8,8,7,.46), transparent); }
+.hero__content > * { animation: antrac-rise .7s both; }
+.hero__content > :nth-child(2) { animation-delay: .08s; }
+.hero__content > :nth-child(3) { animation-delay: .16s; }
+.hero__content > :nth-child(4) { animation-delay: .24s; }
+.quick-booking__inner { border: 1px solid rgba(16,16,15,.06); }
+.service-card { transition: background .25s ease, transform .25s ease; }
+.section--dark .service-card:hover { background: #1a1a18; transform: translateY(-4px); }
+.reasons-grid > article { transition: border-color .25s ease, transform .25s ease; }
+.reasons-grid > article:hover { border-color: var(--gold); transform: translateY(-4px); }
+.faq-list summary { transition: color .2s ease; }
+.faq-list summary:hover { color: #6f5733; }
+.site-footer__bottom a { text-decoration: underline; text-underline-offset: 4px; }
+.form-feedback--error { color: var(--danger); }
+@keyframes antrac-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Privacy consent */
+.cookie-banner { position: fixed; z-index: 90; right: 24px; bottom: 24px; width: min(100% - 40px, 560px); padding: 24px; background: #161614; color: var(--white); box-shadow: 0 22px 60px rgba(0,0,0,.28); }
+.cookie-banner p { color: rgba(255,255,255,.78); font-size: 13px; line-height: 1.65; }
+.cookie-banner strong { display: block; margin-bottom: 5px; color: var(--white); }
+.cookie-banner div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.cookie-banner .button { min-height: 44px; padding: 11px 15px; }
+@media (max-width: 720px) {
+  .cookie-banner { right: 20px; bottom: 20px; padding: 21px 20px; }
+  .cookie-banner div { display: grid; }
+  .cookie-banner .button { width: 100%; }
+}

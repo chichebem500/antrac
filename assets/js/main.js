@@ -4,14 +4,16 @@
   var page = document.body.dataset.page || "";
   var navItems = [
     { href: "fleet.html", label: "Fleet", page: "fleet" },
+    { href: "index.html", label: "Home", page: "home" },
     { href: "services.html", label: "Services", page: "services" },
     { href: "about.html", label: "About", page: "about" },
     { href: "contact.html", label: "Contact", page: "contact" }
   ];
   var defaultSettings = {
     name: "ANTRAC LOGISTICS LIMITED",
-    phone: "0806 666 6431",
-    secondaryPhone: "0809 549 4926",
+    phone: "0805 152 4246",
+    secondaryPhone: "0802 323 7384",
+    tertiaryPhone: "0806 666 6431",
     email: "antraclog@gmail.com",
     address: "Citi Car Hire, Transcorp Hilton Hotel, Aguiyi Ironsi Way, Maitama District, Abuja FCT, Nigeria",
     heroDescription: "Premium executive car hire, buses, professional transportation, and general contracting services for every journey."
@@ -131,3 +133,19 @@
   initContactForm();
   initMapLoading();
 }());
+  function initCookieConsent() {
+    var key = "antrac-cookie-consent";
+    var stored = localStorage.getItem(key);
+    var frames = document.querySelectorAll("[data-map-frame][data-src]");
+    function enableMaps() { frames.forEach(function (frame) { if (!frame.src) frame.src = frame.dataset.src; var canvas = frame.closest("[data-map-canvas]"); if (canvas) { canvas.dataset.loading = "false"; canvas.classList.add("is-loaded"); var loader = canvas.querySelector("[data-map-loader]"); if (loader) loader.hidden = true; } }); }
+    if (stored === "accepted") { enableMaps(); return; }
+    var banner = document.createElement("section");
+    banner.className = "cookie-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-label", "Cookie preferences");
+    banner.innerHTML = '<p><strong>Your privacy matters.</strong> We use essential storage for this preference. Accepting enables Google Maps, which may set third-party cookies.</p><div><button class="button button--light" type="button" data-cookie-accept>Accept maps</button><button class="button button--outline-light" type="button" data-cookie-decline>Keep maps off</button></div>';
+    document.body.appendChild(banner);
+    banner.querySelector("[data-cookie-accept]").addEventListener("click", function () { localStorage.setItem(key, "accepted"); enableMaps(); banner.remove(); });
+    banner.querySelector("[data-cookie-decline]").addEventListener("click", function () { localStorage.setItem(key, "declined"); banner.remove(); });
+  }
+  initCookieConsent();
